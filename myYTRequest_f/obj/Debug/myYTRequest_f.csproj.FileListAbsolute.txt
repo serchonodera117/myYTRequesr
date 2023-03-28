@@ -26,3 +26,11 @@ D:\LENGUAJES_DE_PROGRAMACIÓN\C#\myYTRequest_f\myYTRequest_f\bin\Debug\Google.Ap
 D:\LENGUAJES_DE_PROGRAMACIÓN\C#\myYTRequest_f\myYTRequest_f\bin\Debug\Newtonsoft.Json.xml
 D:\LENGUAJES_DE_PROGRAMACIÓN\C#\myYTRequest_f\myYTRequest_f\obj\Debug\myYTRequest_f.csproj.CopyComplete
 D:\LENGUAJES_DE_PROGRAMACIÓN\C#\myYTRequest_f\myYTRequest_f\bin\Debug\Guna.UI2.dll
+D:\LENGUAJES_DE_PROGRAMACIÓN\C#\myYTRequest_f\myYTRequest_f\bin\Debug\libvideo.dll
+D:\LENGUAJES_DE_PROGRAMACIÓN\C#\myYTRequest_f\myYTRequest_f\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+D:\LENGUAJES_DE_PROGRAMACIÓN\C#\myYTRequest_f\myYTRequest_f\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+D:\LENGUAJES_DE_PROGRAMACIÓN\C#\myYTRequest_f\myYTRequest_f\bin\Debug\System.Numerics.Vectors.dll
+D:\LENGUAJES_DE_PROGRAMACIÓN\C#\myYTRequest_f\myYTRequest_f\bin\Debug\Xamarin.Essentials.dll
+D:\LENGUAJES_DE_PROGRAMACIÓN\C#\myYTRequest_f\myYTRequest_f\bin\Debug\System.Numerics.Vectors.xml
+D:\LENGUAJES_DE_PROGRAMACIÓN\C#\myYTRequest_f\myYTRequest_f\bin\Debug\Xamarin.Essentials.pdb
+D:\LENGUAJES_DE_PROGRAMACIÓN\C#\myYTRequest_f\myYTRequest_f\bin\Debug\Xamarin.Essentials.xml

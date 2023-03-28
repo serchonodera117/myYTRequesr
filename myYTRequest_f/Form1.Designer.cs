@@ -46,21 +46,16 @@ namespace myYTRequest_f
             this.radio_contianer = new System.Windows.Forms.GroupBox();
             this.radioAudio = new System.Windows.Forms.RadioButton();
             this.radioVideo = new System.Windows.Forms.RadioButton();
+            this.downloading_icon = new Guna.UI2.WinForms.Guna2PictureBox();
             this.button1 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.min_video = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.select_video_quality = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.v_quality = new System.Windows.Forms.GroupBox();
-            this.a_auality = new System.Windows.Forms.GroupBox();
-            this.select_audio_quality = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.guna2ProgressBar1 = new Guna.UI2.WinForms.Guna2ProgressBar();
             this.groupBox2.SuspendLayout();
             this.GroupBox1.SuspendLayout();
             this.radio_contianer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.downloading_icon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.min_video)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.v_quality.SuspendLayout();
-            this.a_auality.SuspendLayout();
             this.SuspendLayout();
             // 
             // path_name
@@ -93,10 +88,11 @@ namespace myYTRequest_f
             this.btn_download.Location = new System.Drawing.Point(649, 175);
             this.btn_download.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_download.Name = "btn_download";
-            this.btn_download.Size = new System.Drawing.Size(127, 30);
+            this.btn_download.Size = new System.Drawing.Size(127, 31);
             this.btn_download.TabIndex = 3;
             this.btn_download.Text = "download";
             this.btn_download.UseVisualStyleBackColor = true;
+            this.btn_download.Click += new System.EventHandler(this.btn_download_Click);
             // 
             // title_video
             // 
@@ -167,9 +163,7 @@ namespace myYTRequest_f
             // groupBox2
             // 
             this.groupBox2.AutoSize = true;
-            this.groupBox2.Controls.Add(this.guna2ProgressBar1);
-            this.groupBox2.Controls.Add(this.v_quality);
-            this.groupBox2.Controls.Add(this.a_auality);
+            this.groupBox2.Controls.Add(this.downloading_icon);
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.GroupBox1);
             this.groupBox2.Controls.Add(this.radio_contianer);
@@ -183,7 +177,7 @@ namespace myYTRequest_f
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox2.Size = new System.Drawing.Size(785, 446);
+            this.groupBox2.Size = new System.Drawing.Size(947, 723);
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             // 
@@ -226,7 +220,6 @@ namespace myYTRequest_f
             this.radioAudio.TabIndex = 3;
             this.radioAudio.Text = "Audio.mp3";
             this.radioAudio.UseVisualStyleBackColor = true;
-            this.radioAudio.CheckedChanged += new System.EventHandler(this.radioAudio_CheckedChanged_1);
             // 
             // radioVideo
             // 
@@ -241,7 +234,18 @@ namespace myYTRequest_f
             this.radioVideo.TabStop = true;
             this.radioVideo.Text = "Video.mp4";
             this.radioVideo.UseVisualStyleBackColor = false;
-            this.radioVideo.CheckedChanged += new System.EventHandler(this.radioVideo_CheckedChanged_1);
+            // 
+            // downloading_icon
+            // 
+            this.downloading_icon.Image = global::myYTRequest_f.Properties.Resources.downloading;
+            this.downloading_icon.ImageRotate = 0F;
+            this.downloading_icon.Location = new System.Drawing.Point(649, 295);
+            this.downloading_icon.Name = "downloading_icon";
+            this.downloading_icon.Size = new System.Drawing.Size(130, 131);
+            this.downloading_icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.downloading_icon.TabIndex = 16;
+            this.downloading_icon.TabStop = false;
+            this.downloading_icon.Visible = false;
             // 
             // button1
             // 
@@ -257,7 +261,7 @@ namespace myYTRequest_f
             this.button1.Location = new System.Drawing.Point(67, 13);
             this.button1.Name = "button1";
             this.button1.PressedState.ImageSize = new System.Drawing.Size(33, 33);
-            this.button1.Size = new System.Drawing.Size(49, 49);
+            this.button1.Size = new System.Drawing.Size(46, 33);
             this.button1.TabIndex = 15;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
@@ -284,68 +288,6 @@ namespace myYTRequest_f
             this.pictureBox2.TabIndex = 12;
             this.pictureBox2.TabStop = false;
             // 
-            // select_video_quality
-            // 
-            this.select_video_quality.BackColor = System.Drawing.Color.Transparent;
-            this.select_video_quality.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.select_video_quality.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.select_video_quality.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.select_video_quality.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.select_video_quality.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.select_video_quality.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.select_video_quality.ItemHeight = 30;
-            this.select_video_quality.Location = new System.Drawing.Point(2, 32);
-            this.select_video_quality.Name = "select_video_quality";
-            this.select_video_quality.Size = new System.Drawing.Size(116, 36);
-            this.select_video_quality.TabIndex = 16;
-            // 
-            // v_quality
-            // 
-            this.v_quality.Controls.Add(this.select_video_quality);
-            this.v_quality.Location = new System.Drawing.Point(655, 295);
-            this.v_quality.Name = "v_quality";
-            this.v_quality.Size = new System.Drawing.Size(124, 74);
-            this.v_quality.TabIndex = 16;
-            this.v_quality.TabStop = false;
-            this.v_quality.Text = "Video quality";
-            // 
-            // a_auality
-            // 
-            this.a_auality.Controls.Add(this.select_audio_quality);
-            this.a_auality.Location = new System.Drawing.Point(655, 295);
-            this.a_auality.Name = "a_auality";
-            this.a_auality.Size = new System.Drawing.Size(124, 74);
-            this.a_auality.TabIndex = 17;
-            this.a_auality.TabStop = false;
-            this.a_auality.Text = "Audio quality";
-            this.a_auality.UseCompatibleTextRendering = true;
-            this.a_auality.Visible = false;
-            // 
-            // select_audio_quality
-            // 
-            this.select_audio_quality.BackColor = System.Drawing.Color.Transparent;
-            this.select_audio_quality.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.select_audio_quality.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.select_audio_quality.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.select_audio_quality.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.select_audio_quality.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.select_audio_quality.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.select_audio_quality.ItemHeight = 30;
-            this.select_audio_quality.Location = new System.Drawing.Point(6, 32);
-            this.select_audio_quality.Name = "select_audio_quality";
-            this.select_audio_quality.Size = new System.Drawing.Size(116, 36);
-            this.select_audio_quality.TabIndex = 16;
-            // 
-            // guna2ProgressBar1
-            // 
-            this.guna2ProgressBar1.BackColor = System.Drawing.Color.Violet;
-            this.guna2ProgressBar1.Location = new System.Drawing.Point(28, 396);
-            this.guna2ProgressBar1.Name = "guna2ProgressBar1";
-            this.guna2ProgressBar1.Size = new System.Drawing.Size(624, 30);
-            this.guna2ProgressBar1.TabIndex = 18;
-            this.guna2ProgressBar1.Text = "guna2ProgressBar1";
-            this.guna2ProgressBar1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -363,10 +305,9 @@ namespace myYTRequest_f
             this.GroupBox1.PerformLayout();
             this.radio_contianer.ResumeLayout(false);
             this.radio_contianer.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.downloading_icon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.min_video)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.v_quality.ResumeLayout(false);
-            this.a_auality.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -392,11 +333,7 @@ namespace myYTRequest_f
         private Guna.UI2.WinForms.Guna2GroupBox GroupBox1;
         private Guna.UI2.WinForms.Guna2PictureBox min_video;
         private Guna.UI2.WinForms.Guna2ImageButton button1;
-        private System.Windows.Forms.GroupBox a_auality;
-        private Guna.UI2.WinForms.Guna2ComboBox select_audio_quality;
-        private System.Windows.Forms.GroupBox v_quality;
-        private Guna.UI2.WinForms.Guna2ComboBox select_video_quality;
-        private Guna.UI2.WinForms.Guna2ProgressBar guna2ProgressBar1;
+        private Guna.UI2.WinForms.Guna2PictureBox downloading_icon;
     }
 }
 

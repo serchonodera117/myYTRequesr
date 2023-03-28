@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Google.Apis;
 using Google.Apis.Services;
 using Google.Apis.YouTube.v3;
+using VideoLibrary;
 
 
 namespace myYTRequest_f
@@ -140,27 +141,30 @@ namespace myYTRequest_f
             }
         }
 
-        private void radioVideo_CheckedChanged_1(object sender, EventArgs e)
+        private void btn_download_Click(object sender, EventArgs e)
         {
-            bool selected = (radioVideo.Checked) ? true : false;
-            v_quality.Visible = selected;
+            if (radioVideo.Checked)
+            {
+                downloadVideo();
+            }
         }
 
-        private void radioAudio_CheckedChanged_1(object sender, EventArgs e)
+        private void downloadVideo()
         {
-            bool selected = (radioAudio.Checked) ? true : false;
-            a_auality.Visible = selected;
+            downloading_icon.Visible = true;
+            string theUrl = url_search.Text;
+            var youtube = YouTube.Default;
+            var video = youtube.GetVideo(theUrl);
+
+            File.WriteAllBytes(@path+'/'+video.FullName,video.GetBytes());
+            video_download_finished();
         }
-
-
-
-
-        //private void btn_download_Click(object sender, EventArgs e)
-        //{
-        //    if (radioVideo.Checked)
-        //    {
-
-        //    }
-        //}
+        private void video_download_finished()
+        {
+            downloading_icon.Visible = false;
+            url_search.Text = "";
+            myUrl = url_search.Text = "";
+            MessageBox.Show($"Download has been succesfully saved in {path}");
+        }
     }
 }
