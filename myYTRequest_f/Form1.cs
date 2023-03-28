@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Google.Apis;
 using Google.Apis.Services;
 using Google.Apis.YouTube.v3;
+using MediaToolkit;
 using VideoLibrary;
 
 
@@ -32,7 +33,7 @@ namespace myYTRequest_f
 
             yt = new YouTubeService(new BaseClientService.Initializer()
             {
-                ApiKey = "Your Api key"
+                ApiKey = "AIzaSyCca9kwDhBgJ8SAz1zAAuYSsv-3KIZatQk"
             });
         }
 
@@ -143,28 +144,50 @@ namespace myYTRequest_f
 
         private void btn_download_Click(object sender, EventArgs e)
         {
-            if (radioVideo.Checked)
-            {
-                downloadVideo();
-            }
+            if (radioVideo.Checked){downloadVideo();}
+            if (radioAudio.Checked) { downloadAudioMP3(); }
         }
 
-        private void downloadVideo()
+        private async void downloadVideo()
         {
             downloading_icon.Visible = true;
             string theUrl = url_search.Text;
             var youtube = YouTube.Default;
-            var video = youtube.GetVideo(theUrl);
+            var video = await youtube.GetVideoAsync(theUrl);
 
             File.WriteAllBytes(@path+'/'+video.FullName,video.GetBytes());
-            video_download_finished();
+            download_finished("Video");
         }
-        private void video_download_finished()
+        private void download_finished(string file)
         {
             downloading_icon.Visible = false;
             url_search.Text = "";
             myUrl = url_search.Text = "";
-            MessageBox.Show($"Download has been succesfully saved in {path}");
+            MessageBox.Show($"The {file} has been succesfully saved in {path}");
+        }
+
+        private async void downloadAudioMP3()
+        {
+            downloading_icon.Visible = true;
+            string theUrl = url_search.Text;
+            var youtube = YouTube.Default;
+            var video = await youtube.GetVideoAsync(theUrl);
+
+
+             //video.FileExtension.Replace(".mp4",".mp3");
+            File.WriteAllBytes(@path + '/' + video.FullName, video.GetBytes());
+
+             var inputfile = new MediaToolkit.Model.MediaFile { Filename =  path + '/' + video.FullName };
+             var outputfile = new MediaToolkit.Model.MediaFile { Filename = $"{ @path + '/' + video.FullName }.mp3"  };
+
+                    using (var enging = new Engine())
+                    {
+                        enging.GetMetadata(inputfile);
+                        enging.Convert(inputfile, outputfile);
+                    }
+               File.Delete(@path + '/' + video.FullName);
+
+            download_finished("Audio");
         }
     }
 }

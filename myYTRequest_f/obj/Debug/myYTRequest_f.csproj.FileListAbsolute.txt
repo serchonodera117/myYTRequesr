@@ -34,3 +34,4 @@ D:\LENGUAJES_DE_PROGRAMACIÓN\C#\myYTRequest_f\myYTRequest_f\bin\Debug\Xamarin.E
 D:\LENGUAJES_DE_PROGRAMACIÓN\C#\myYTRequest_f\myYTRequest_f\bin\Debug\System.Numerics.Vectors.xml
 D:\LENGUAJES_DE_PROGRAMACIÓN\C#\myYTRequest_f\myYTRequest_f\bin\Debug\Xamarin.Essentials.pdb
 D:\LENGUAJES_DE_PROGRAMACIÓN\C#\myYTRequest_f\myYTRequest_f\bin\Debug\Xamarin.Essentials.xml
+D:\LENGUAJES_DE_PROGRAMACIÓN\C#\myYTRequest_f\myYTRequest_f\bin\Debug\MediaToolkit.dll
