@@ -33,7 +33,7 @@ namespace myYTRequest_f
 
             yt = new YouTubeService(new BaseClientService.Initializer()
             {
-                ApiKey = "AIzaSyCca9kwDhBgJ8SAz1zAAuYSsv-3KIZatQk"
+                ApiKey = "Your API token" //to get it you have to log in Google developer console 
             });
         }
 
