@@ -32,7 +32,7 @@ namespace myYTRequest_f
 
             yt = new YouTubeService(new BaseClientService.Initializer()
             {
-                ApiKey = "AIzaSyCca9kwDhBgJ8SAz1zAAuYSsv-3KIZatQk"
+                ApiKey = "Your Api key"
             });
         }
 
