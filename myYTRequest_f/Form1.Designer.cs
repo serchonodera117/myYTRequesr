@@ -42,19 +42,19 @@ namespace myYTRequest_f
             this.label1 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.downloading_icon = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.button1 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.min_video = new Guna.UI2.WinForms.Guna2PictureBox();
             this.radio_contianer = new System.Windows.Forms.GroupBox();
             this.radioAudio = new System.Windows.Forms.RadioButton();
             this.radioVideo = new System.Windows.Forms.RadioButton();
-            this.downloading_icon = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.button1 = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.min_video = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.groupBox2.SuspendLayout();
-            this.GroupBox1.SuspendLayout();
-            this.radio_contianer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.downloading_icon)).BeginInit();
+            this.GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.min_video)).BeginInit();
+            this.radio_contianer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -181,60 +181,6 @@ namespace myYTRequest_f
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             // 
-            // GroupBox1
-            // 
-            this.GroupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.GroupBox1.BorderRadius = 15;
-            this.GroupBox1.Controls.Add(this.min_video);
-            this.GroupBox1.Controls.Add(this.title_video);
-            this.GroupBox1.Controls.Add(this.url_video);
-            this.GroupBox1.Controls.Add(this.chanel_video);
-            this.GroupBox1.Controls.Add(this.description_video);
-            this.GroupBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.GroupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.GroupBox1.Location = new System.Drawing.Point(29, 210);
-            this.GroupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.GroupBox1.Name = "GroupBox1";
-            this.GroupBox1.Size = new System.Drawing.Size(595, 166);
-            this.GroupBox1.TabIndex = 10;
-            // 
-            // radio_contianer
-            // 
-            this.radio_contianer.Controls.Add(this.radioAudio);
-            this.radio_contianer.Controls.Add(this.radioVideo);
-            this.radio_contianer.Location = new System.Drawing.Point(649, 210);
-            this.radio_contianer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radio_contianer.Name = "radio_contianer";
-            this.radio_contianer.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radio_contianer.Size = new System.Drawing.Size(130, 76);
-            this.radio_contianer.TabIndex = 14;
-            this.radio_contianer.TabStop = false;
-            // 
-            // radioAudio
-            // 
-            this.radioAudio.AutoSize = true;
-            this.radioAudio.Location = new System.Drawing.Point(0, 44);
-            this.radioAudio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioAudio.Name = "radioAudio";
-            this.radioAudio.Size = new System.Drawing.Size(96, 21);
-            this.radioAudio.TabIndex = 3;
-            this.radioAudio.Text = "Audio.mp3";
-            this.radioAudio.UseVisualStyleBackColor = true;
-            // 
-            // radioVideo
-            // 
-            this.radioVideo.AutoSize = true;
-            this.radioVideo.BackColor = System.Drawing.Color.Transparent;
-            this.radioVideo.Checked = true;
-            this.radioVideo.Location = new System.Drawing.Point(0, 19);
-            this.radioVideo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioVideo.Name = "radioVideo";
-            this.radioVideo.Size = new System.Drawing.Size(96, 21);
-            this.radioVideo.TabIndex = 2;
-            this.radioVideo.TabStop = true;
-            this.radioVideo.Text = "Video.mp4";
-            this.radioVideo.UseVisualStyleBackColor = false;
-            // 
             // downloading_icon
             // 
             this.downloading_icon.Image = global::myYTRequest_f.Properties.Resources.downloading;
@@ -265,6 +211,23 @@ namespace myYTRequest_f
             this.button1.TabIndex = 15;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
+            // GroupBox1
+            // 
+            this.GroupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.GroupBox1.BorderRadius = 15;
+            this.GroupBox1.Controls.Add(this.min_video);
+            this.GroupBox1.Controls.Add(this.title_video);
+            this.GroupBox1.Controls.Add(this.url_video);
+            this.GroupBox1.Controls.Add(this.chanel_video);
+            this.GroupBox1.Controls.Add(this.description_video);
+            this.GroupBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.GroupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.GroupBox1.Location = new System.Drawing.Point(29, 210);
+            this.GroupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.GroupBox1.Name = "GroupBox1";
+            this.GroupBox1.Size = new System.Drawing.Size(595, 166);
+            this.GroupBox1.TabIndex = 10;
+            // 
             // min_video
             // 
             this.min_video.BorderRadius = 15;
@@ -275,6 +238,43 @@ namespace myYTRequest_f
             this.min_video.Size = new System.Drawing.Size(214, 147);
             this.min_video.TabIndex = 10;
             this.min_video.TabStop = false;
+            // 
+            // radio_contianer
+            // 
+            this.radio_contianer.Controls.Add(this.radioAudio);
+            this.radio_contianer.Controls.Add(this.radioVideo);
+            this.radio_contianer.Location = new System.Drawing.Point(649, 210);
+            this.radio_contianer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radio_contianer.Name = "radio_contianer";
+            this.radio_contianer.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radio_contianer.Size = new System.Drawing.Size(130, 76);
+            this.radio_contianer.TabIndex = 14;
+            this.radio_contianer.TabStop = false;
+            // 
+            // radioAudio
+            // 
+            this.radioAudio.AutoSize = true;
+            this.radioAudio.Location = new System.Drawing.Point(0, 44);
+            this.radioAudio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioAudio.Name = "radioAudio";
+            this.radioAudio.Size = new System.Drawing.Size(92, 20);
+            this.radioAudio.TabIndex = 3;
+            this.radioAudio.Text = "Audio.mp3";
+            this.radioAudio.UseVisualStyleBackColor = true;
+            // 
+            // radioVideo
+            // 
+            this.radioVideo.AutoSize = true;
+            this.radioVideo.BackColor = System.Drawing.Color.Transparent;
+            this.radioVideo.Checked = true;
+            this.radioVideo.Location = new System.Drawing.Point(0, 19);
+            this.radioVideo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioVideo.Name = "radioVideo";
+            this.radioVideo.Size = new System.Drawing.Size(93, 20);
+            this.radioVideo.TabIndex = 2;
+            this.radioVideo.TabStop = true;
+            this.radioVideo.Text = "Video.mp4";
+            this.radioVideo.UseVisualStyleBackColor = false;
             // 
             // pictureBox2
             // 
@@ -301,12 +301,12 @@ namespace myYTRequest_f
             this.Text = "myYTRequest";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.downloading_icon)).EndInit();
             this.GroupBox1.ResumeLayout(false);
             this.GroupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.min_video)).EndInit();
             this.radio_contianer.ResumeLayout(false);
             this.radio_contianer.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.downloading_icon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.min_video)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.Design;
 using Google.Apis;
 using Google.Apis.Services;
 using Google.Apis.YouTube.v3;
@@ -33,7 +35,7 @@ namespace myYTRequest_f
 
             yt = new YouTubeService(new BaseClientService.Initializer()
             {
-                ApiKey = "Your API token" //to get it you have to log in Google developer console 
+                ApiKey = "AIzaSyCca9kwDhBgJ8SAz1zAAuYSsv-3KIZatQk" //to get it you have to log in Google developer console 
             });
         }
 
@@ -156,14 +158,26 @@ namespace myYTRequest_f
             var video = await youtube.GetVideoAsync(theUrl);
 
             File.WriteAllBytes(@path+'/'+video.FullName,video.GetBytes());
-            download_finished("Video");
+            string videoName = video.FullName;
+            download_finished("Video", videoName);
         }
-        private void download_finished(string file)
+        private void download_finished(string file, string myFileName)
         {
             downloading_icon.Visible = false;
             url_search.Text = "";
             myUrl = url_search.Text = "";
-            MessageBox.Show($"The {file} has been succesfully saved in {path}");
+            MessageBox.Show($"The {file}  '[{myFileName}]' has been succesfully saved in {path}");
+            openFIleRoute(myFileName);
+        }
+        private void openFIleRoute(string theFileName)
+        {
+            string completeRoute = path + theFileName;
+            ProcessStartInfo myProcess = new ProcessStartInfo{ 
+                 Arguments = path,
+                FileName = "explorer.exe"
+            };
+
+            Process.Start(myProcess);
         }
 
         private async void downloadAudioMP3()
@@ -172,14 +186,11 @@ namespace myYTRequest_f
             string theUrl = url_search.Text;
             var youtube = YouTube.Default;
             var video = await youtube.GetVideoAsync(theUrl);
-
-
-             //video.FileExtension.Replace(".mp4",".mp3");
             File.WriteAllBytes(@path + '/' + video.FullName, video.GetBytes());
 
              var inputfile = new MediaToolkit.Model.MediaFile { Filename =  path + '/' + video.FullName };
-             var outputfile = new MediaToolkit.Model.MediaFile { Filename = $"{ @path + '/' + video.FullName }.mp3"  };
-
+             var outputfile = new MediaToolkit.Model.MediaFile { Filename = $"{ @path + '/' + video.FullName.Replace(".mp4","") }.mp3"  };
+            string fileName = video.FullName.Replace("mp4", "mp3");
                     using (var enging = new Engine())
                     {
                         enging.GetMetadata(inputfile);
@@ -187,7 +198,8 @@ namespace myYTRequest_f
                     }
                File.Delete(@path + '/' + video.FullName);
 
-            download_finished("Audio");
+
+            download_finished("Audio",fileName);
         }
     }
 }
