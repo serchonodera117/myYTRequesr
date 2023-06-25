@@ -152,7 +152,12 @@ namespace myYTRequest_f
 
         private async void downloadVideo()
         {
+            try
+            {
             downloading_icon.Visible = true;
+            Image gifImage = Properties.Resources.downloading;
+            ImageAnimator.Animate(gifImage, OnFrameChanged);
+            btn_download.Enabled = false;
             string theUrl = url_search.Text;
             var youtube = YouTube.Default;
             var video = await youtube.GetVideoAsync(theUrl);
@@ -160,6 +165,11 @@ namespace myYTRequest_f
             File.WriteAllBytes(@path+'/'+video.FullName,video.GetBytes());
             string videoName = video.FullName;
             download_finished("Video", videoName);
+
+            }catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
         }
         private void download_finished(string file, string myFileName)
         {
@@ -171,9 +181,9 @@ namespace myYTRequest_f
         }
         private void openFIleRoute(string theFileName)
         {
-            string completeRoute = path + theFileName;
+            string completeRoute =  Path.Combine(path,theFileName);
             ProcessStartInfo myProcess = new ProcessStartInfo{ 
-                 Arguments = path,
+                 Arguments = "/select, \"" + completeRoute + "\"",
                 FileName = "explorer.exe"
             };
 
@@ -182,7 +192,12 @@ namespace myYTRequest_f
 
         private async void downloadAudioMP3()
         {
+            try
+            {
             downloading_icon.Visible = true;
+            Image gifImage = Properties.Resources.downloading;
+            ImageAnimator.Animate(gifImage, OnFrameChanged);
+            btn_download.Enabled = false;
             string theUrl = url_search.Text;
             var youtube = YouTube.Default;
             var video = await youtube.GetVideoAsync(theUrl);
@@ -200,6 +215,19 @@ namespace myYTRequest_f
 
 
             download_finished("Audio",fileName);
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error: "+" "+ ex);
+            }
+        }
+
+                                    //---------------------------Actualizar Gif
+         private void OnFrameChanged(object sender, EventArgs e)
+        {
+            // Forzar el repintado del PictureBox
+            downloading_icon.Invalidate();
         }
     }
 }
