@@ -24,6 +24,7 @@ namespace myYTRequest_f
         private string path;
         public string myUrl;
         private YouTubeService yt;
+        private YoutubeRequest myYouTubeObject;
         public Form1()
         {
             InitializeComponent();
@@ -35,10 +36,13 @@ namespace myYTRequest_f
 
             yt = new YouTubeService(new BaseClientService.Initializer()
             {
-                ApiKey = "AIzaSyCca9kwDhBgJ8SAz1zAAuYSsv-3KIZatQk" //to get it you have to log in Google developer console 
+                ApiKey = "" //to get it you have to log in Google developer console 
             });
+
+            myYouTubeObject = new YoutubeRequest(this);
         }
 
+        //-----------------------------------------------select the path
         private void button1_Click_1(object sender, EventArgs e)
         {
             FolderBrowserDialog browser = new FolderBrowserDialog();
@@ -46,8 +50,10 @@ namespace myYTRequest_f
             path = path_name.Text;
             savePath(path);
             validateTextBox(path);
+           
 
         }
+        //------------------------------------url search
 
         private async void url_search_TextChanged(object sender, EventArgs e)
         {
@@ -59,7 +65,15 @@ namespace myYTRequest_f
 
             if (result)
             {
-                await urlSearch(url_search.Text);
+                // await urlSearch(url_search.Text);
+                await myYouTubeObject.urlSearch(
+                    url_search.Text, yt, title_video, chanel_video, description_video,
+                    url_video, min_video, url_search);
+
+               //await myTwiterOnject.urlSearch(parameters) 
+
+               //await myInatagramOnject.urlSearch(parameters) 
+
             }
             else
             {
@@ -70,7 +84,7 @@ namespace myYTRequest_f
 
         }
 
-        private void visibleItems(string url)
+        public void visibleItems(string url)
         {
             string check = url.Replace(" ", string.Empty);
             btn_download.Enabled = (string.IsNullOrEmpty(check)) ? false : true;
@@ -104,74 +118,23 @@ namespace myYTRequest_f
         }
 
     
+
         //-----------------------------------------------------------------------------queries
-        private async Task urlSearch(string url)
-        {
-            //buscar del buscador
-            var searchListRequest = yt.Search.List("snippet");
-            searchListRequest.Q = url;
-            searchListRequest.MaxResults = 1;
-
-            var searchListResponse = await searchListRequest.ExecuteAsync();
-
-            //obtener id del primer video 
-            var videoId = searchListResponse.Items.FirstOrDefault()?.Id.VideoId;
-            var title = searchListResponse.Items.FirstOrDefault()?.Snippet.Title;
-            var author = searchListResponse.Items.FirstOrDefault()?.Snippet.ChannelTitle;
-            var description = searchListResponse.Items.FirstOrDefault()?.Snippet.ChannelTitle;
-            if (videoId != null)
-            {
-                title_video.Text = title.ToString();
-                chanel_video.Text = author.ToString();
-                description_video.Text = description.ToString();
-                url_video.Text = url;
-                var minUrl = $"https://img.youtube.com/vi/{videoId}/default.jpg";
-                //cargar miniatura
-                var min = await LoadMin(minUrl);
-                min_video.Image = min;
-                visibleItems(url_search.Text);
-            }
-        }
-        private async Task<Image> LoadMin(string url) //cargar la imagen del video 
-        {
-            using (var webClient = new System.Net.WebClient())
-            {
-                var data = await webClient.DownloadDataTaskAsync(url);
-                using (var stream = new System.IO.MemoryStream(data))
-                {
-                    return Image.FromStream(stream);
-                }
-            }
-        }
 
         private void btn_download_Click(object sender, EventArgs e)
         {
-            if (radioVideo.Checked){downloadVideo();}
-            if (radioAudio.Checked) { downloadAudioMP3(); }
-        }
-
-        private async void downloadVideo()
-        {
-            try
-            {
-            downloading_icon.Visible = true;
-            Image gifImage = Properties.Resources.downloading;
-            ImageAnimator.Animate(gifImage, OnFrameChanged);
-            btn_download.Enabled = false;
-            string theUrl = url_search.Text;
-            var youtube = YouTube.Default;
-            var video = await youtube.GetVideoAsync(theUrl);
-
-            File.WriteAllBytes(@path+'/'+video.FullName,video.GetBytes());
-            string videoName = video.FullName;
-            download_finished("Video", videoName);
-
-            }catch(Exception e)
-            {
-                MessageBox.Show(e.Message);
+            if (radioVideo.Checked){
+                //downloadVideo();
+                myYouTubeObject.downloadVideo(downloading_icon, btn_download, url_search, path);
+            }
+            if (radioAudio.Checked) {
+                myYouTubeObject.downloadAudioMP3(downloading_icon, btn_download, url_search, path);
+                //downloadAudioMP3(); 
             }
         }
-        private void download_finished(string file, string myFileName)
+
+     
+        public void download_finished(string file, string myFileName)
         {
             downloading_icon.Visible = false;
             url_search.Text = "";
@@ -190,41 +153,8 @@ namespace myYTRequest_f
             Process.Start(myProcess);
         }
 
-        private async void downloadAudioMP3()
-        {
-            try
-            {
-            downloading_icon.Visible = true;
-            Image gifImage = Properties.Resources.downloading;
-            ImageAnimator.Animate(gifImage, OnFrameChanged);
-            btn_download.Enabled = false;
-            string theUrl = url_search.Text;
-            var youtube = YouTube.Default;
-            var video = await youtube.GetVideoAsync(theUrl);
-            File.WriteAllBytes(@path + '/' + video.FullName, video.GetBytes());
-
-             var inputfile = new MediaToolkit.Model.MediaFile { Filename =  path + '/' + video.FullName };
-             var outputfile = new MediaToolkit.Model.MediaFile { Filename = $"{ @path + '/' + video.FullName.Replace(".mp4","") }.mp3"  };
-            string fileName = video.FullName.Replace("mp4", "mp3");
-                    using (var enging = new Engine())
-                    {
-                        enging.GetMetadata(inputfile);
-                        enging.Convert(inputfile, outputfile);
-                    }
-               File.Delete(@path + '/' + video.FullName);
-
-
-            download_finished("Audio",fileName);
-
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show("Error: "+" "+ ex);
-            }
-        }
-
                                     //---------------------------Actualizar Gif
-         private void OnFrameChanged(object sender, EventArgs e)
+         public void OnFrameChanged(object sender, EventArgs e)
         {
             // Forzar el repintado del PictureBox
             downloading_icon.Invalidate();
