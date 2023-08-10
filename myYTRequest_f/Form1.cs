@@ -23,8 +23,10 @@ namespace myYTRequest_f
     {
         private string path;
         public string myUrl;
+        private string platformName;
         private YouTubeService yt;
         private YoutubeRequest myYouTubeObject;
+        private XTwitterRequest myXTwitterObject;
         public Form1()
         {
             InitializeComponent();
@@ -40,6 +42,7 @@ namespace myYTRequest_f
             });
 
             myYouTubeObject = new YoutubeRequest(this);
+            myXTwitterObject = new XTwitterRequest(this);
         }
 
         //-----------------------------------------------select the path
@@ -65,14 +68,25 @@ namespace myYTRequest_f
 
             if (result)
             {
-                // await urlSearch(url_search.Text);
-                await myYouTubeObject.urlSearch(
-                    url_search.Text, yt, title_video, chanel_video, description_video,
-                    url_video, min_video, url_search);
+                platformName = IdentifyPlatform(url_search.Text);
+                switch (platformName)
+                {
+                    case "YouTube":
+                        await myYouTubeObject.urlSearch(
+                            url_search.Text, yt, title_video, chanel_video, description_video,
+                            url_video, min_video, url_search); break;
 
-               //await myTwiterOnject.urlSearch(parameters) 
+                    case "Twitter":
+                       await myXTwitterObject.urlSearch(
+                        url_search.Text, title_video, chanel_video,
+                        description_video, url_video, min_video, url_search); break;
 
-               //await myInatagramOnject.urlSearch(parameters) 
+                        //case "Instagram"
+                        //await myInsragramObject.urlSearch(
+                        //url_search.Text, yt, title_video, chanel_video, description_video,
+                        //url_video, min_video, url_search); break;      
+                }
+
 
             }
             else
@@ -91,7 +105,7 @@ namespace myYTRequest_f
             GroupBox1.Visible = (string.IsNullOrEmpty(check)) ? false : true;
         }
         
-    private void validateTextBox(string path)
+       private void validateTextBox(string path)
         {
             url_search.Enabled = (path != "Path...") ? true : false;
         }
@@ -117,7 +131,16 @@ namespace myYTRequest_f
             return  (File.Exists(fullPath))?File.ReadAllText(fullPath): "Path...";
         }
 
-    
+        private string IdentifyPlatform(string url)
+        {
+            switch(url)
+            {
+                case string s when s.Contains("youtube.com"): return "YouTube";
+                case string s when s.Contains("twitter.com"): return "Twitter";
+
+                default: return "Unknown"; 
+            }
+        } 
 
         //-----------------------------------------------------------------------------queries
 

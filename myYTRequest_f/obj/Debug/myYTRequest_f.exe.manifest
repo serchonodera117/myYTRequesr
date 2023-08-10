@@ -138,6 +138,18 @@
     </dependentAssembly>
   </dependency>
   <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="HtmlAgilityPack.dll" size="169984">
+      <assemblyIdentity name="HtmlAgilityPack" version="1.11.51.0" publicKeyToken="BD319B19EAF3B43A" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>FxhEYxOZOZqWZnc11C4dRP5NILbKkPWdB6gojyX6gVw=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Jurassic.dll" size="520192">
       <assemblyIdentity name="Jurassic" version="3.2.6.0" language="neutral" processorArchitecture="msil" />
       <hash>
@@ -186,14 +198,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="myYTRequest_f.exe" size="239584">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="myYTRequest_f.exe" size="244704">
       <assemblyIdentity name="myYTRequest_f" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>DkqI5Bh1DvASvlVTg01or4cr5rm3i9oBLNPg48KCte8=</dsig:DigestValue>
+        <dsig:DigestValue>32cnpzmver9tFsynEZ5MUG3IZ+nqkL+3vM8MMLeJfDU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

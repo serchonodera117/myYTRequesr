@@ -63,3 +63,6 @@ D:\LENGUAJES_DE_PROGRAMACION\C#\myYTRequest_f\myYTRequest_f\obj\Debug\myYTReques
 D:\LENGUAJES_DE_PROGRAMACION\C#\myYTRequest_f\myYTRequest_f\obj\Debug\myYTRequest_f.exe
 D:\LENGUAJES_DE_PROGRAMACION\C#\myYTRequest_f\myYTRequest_f\obj\Debug\myYTRequest_f.pdb
 D:\LENGUAJES_DE_PROGRAMACION\C#\myYTRequest_f\myYTRequest_f\bin\Debug\libvideo.dll
+D:\LENGUAJES_DE_PROGRAMACION\C#\myYTRequest_f\myYTRequest_f\bin\Debug\HtmlAgilityPack.dll
+D:\LENGUAJES_DE_PROGRAMACION\C#\myYTRequest_f\myYTRequest_f\bin\Debug\HtmlAgilityPack.pdb
+D:\LENGUAJES_DE_PROGRAMACION\C#\myYTRequest_f\myYTRequest_f\bin\Debug\HtmlAgilityPack.xml
