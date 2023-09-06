@@ -50,6 +50,8 @@ namespace myYTRequest_f
                 //cargar miniatura
                 var min = await LoadMin(minUrl);
                 min_video.Image = min;
+                min_video.SizeMode = PictureBoxSizeMode.Zoom;
+
                 form1.visibleItems(url_search.Text);
             }
         }

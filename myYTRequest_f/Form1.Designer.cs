@@ -42,6 +42,7 @@ namespace myYTRequest_f
             this.label1 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.sign = new System.Windows.Forms.Label();
             this.downloading_icon = new Guna.UI2.WinForms.Guna2PictureBox();
             this.button1 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
@@ -131,7 +132,7 @@ namespace myYTRequest_f
             // url_video
             // 
             this.url_video.AutoSize = true;
-            this.url_video.BackColor = System.Drawing.Color.White;
+            this.url_video.BackColor = System.Drawing.Color.Transparent;
             this.url_video.Location = new System.Drawing.Point(226, 127);
             this.url_video.Name = "url_video";
             this.url_video.Size = new System.Drawing.Size(26, 20);
@@ -163,6 +164,7 @@ namespace myYTRequest_f
             // groupBox2
             // 
             this.groupBox2.AutoSize = true;
+            this.groupBox2.Controls.Add(this.sign);
             this.groupBox2.Controls.Add(this.downloading_icon);
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.GroupBox1);
@@ -180,6 +182,16 @@ namespace myYTRequest_f
             this.groupBox2.Size = new System.Drawing.Size(947, 723);
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
+            // 
+            // sign
+            // 
+            this.sign.AutoSize = true;
+            this.sign.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.sign.Location = new System.Drawing.Point(-3, 413);
+            this.sign.Name = "sign";
+            this.sign.Size = new System.Drawing.Size(345, 16);
+            this.sign.TabIndex = 17;
+            this.sign.Text = "Developed by Serch Onodera. ©2023. All rights reserved.";
             // 
             // downloading_icon
             // 
@@ -220,6 +232,8 @@ namespace myYTRequest_f
             this.GroupBox1.Controls.Add(this.url_video);
             this.GroupBox1.Controls.Add(this.chanel_video);
             this.GroupBox1.Controls.Add(this.description_video);
+            this.GroupBox1.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.GroupBox1.FillColor = System.Drawing.Color.WhiteSmoke;
             this.GroupBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.GroupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.GroupBox1.Location = new System.Drawing.Point(29, 210);
@@ -235,7 +249,7 @@ namespace myYTRequest_f
             this.min_video.Location = new System.Drawing.Point(-1, 0);
             this.min_video.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.min_video.Name = "min_video";
-            this.min_video.Size = new System.Drawing.Size(214, 147);
+            this.min_video.Size = new System.Drawing.Size(214, 164);
             this.min_video.TabIndex = 10;
             this.min_video.TabStop = false;
             // 
@@ -334,6 +348,7 @@ namespace myYTRequest_f
         private Guna.UI2.WinForms.Guna2PictureBox min_video;
         private Guna.UI2.WinForms.Guna2ImageButton button1;
         private Guna.UI2.WinForms.Guna2PictureBox downloading_icon;
+        private System.Windows.Forms.Label sign;
     }
 }
 

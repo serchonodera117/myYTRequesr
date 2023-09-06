@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Tweetinvi.Logic</name>
+    </assembly>
+    <members>
+        <member name="F:Tweetinvi.Logic.Properties.Resources.ExceptionDescription_44">
+            <summary>
+              Looks up a localized string similar to Not Modified - There was no new data to return..
+            </summary>
+        </member>
+        <member name="F:Tweetinvi.Logic.Properties.Resources.ExceptionDescription_304">
+            <summary>
+              Looks up a localized string similar to Not Modified - There was no new data to return..
+            </summary>
+        </member>
+        <member name="F:Tweetinvi.Logic.Properties.Resources.ExceptionDescription_385">
+            <summary>
+              The Tweet exceeds the number of allowed attachment types.
+            </summary>
+        </member>
+        <member name="F:Tweetinvi.Logic.Properties.Resources.ExceptionDescription_386">
+            <summary>
+              The Tweet exceeds the number of allowed attachment types.
+            </summary>
+        </member>
+        <member name="F:Tweetinvi.Logic.Properties.Resources.ExceptionDescription_400">
+            <summary>
+              Looks up a localized string similar to Bad Request - The request was invalid or cannot be otherwise served. An accompanying error message will explain further. In API v1.1, requests without authentication are considered invalid and will yield this response..
+            </summary>
+        </member>
+        <member name="F:Tweetinvi.Logic.Properties.Resources.ExceptionDescription_401">
+            <summary>
+              Looks up a localized string similar to Unauthorized -  Authentication credentials were missing or incorrect..
+            </summary>
+        </member>
+        <member name="F:Tweetinvi.Logic.Properties.Resources.ExceptionDescription_403">
+            <summary>
+              Looks up a localized string similar to Forbidden - The request is understood, but it has been refused or access is not allowed. An accompanying error message will explain why. This code is used when requests are being denied due to update limits..
+            </summary>
+        </member>
+        <member name="F:Tweetinvi.Logic.Properties.Resources.ExceptionDescription_404">
+            <summary>
+              Looks up a localized string similar to Not Found - The URI requested is invalid or the resource requested, such as a user, does not exists. Also returned when the requested format is not supported by the requested method..
+            </summary>
+        </member>
+        <member name="F:Tweetinvi.Logic.Properties.Resources.ExceptionDescription_406">
+            <summary>
+              Looks up a localized string similar to Not Acceptable - Returned by the Search API when an invalid format is specified in the request..
+            </summary>
+        </member>
+        <member name="F:Tweetinvi.Logic.Properties.Resources.ExceptionDescription_410">
+            <summary>
+              Looks up a localized string similar to Gone - This resource is gone. Used to indicate that an API endpoint has been turned off. For example: &quot;The Twitter REST API v1 will soon stop functioning. Please migrate to API v1.1..
+            </summary>
+        </member>
+        <member name="F:Tweetinvi.Logic.Properties.Resources.ExceptionDescription_420">
+            <summary>
+              Looks up a localized string similar to Enhance Your Calm
+            </summary>
+        </member>
+        <member name="F:Tweetinvi.Logic.Properties.Resources.ExceptionDescription_422">
+            <summary>
+              Looks up a localized string similar to Unprocessable Entity - Returned when an image uploaded to POST account/update_profile_banner is unable to be processed..
+            </summary>
+        </member>
+        <member name="F:Tweetinvi.Logic.Properties.Resources.ExceptionDescription_429">
+            <summary>
+              Looks up a localized string similar to Too Many Requests - Returned in API v1.1 when a request cannot be served due to the application&apos;s rate limit having been exhausted for the resource. See Rate Limiting in API v1.1..
+            </summary>
+        </member>
+        <member name="F:Tweetinvi.Logic.Properties.Resources.ExceptionDescription_500">
+            <summary>
+              Looks up a localized string similar to Internal Server Error - Something is broken. Please post to the group so the Twitter team can investigate..
+            </summary>
+        </member>
+        <member name="F:Tweetinvi.Logic.Properties.Resources.ExceptionDescription_502">
+            <summary>
+              Looks up a localized string similar to Bad Gateway - Twitter is down or being upgraded..
+            </summary>
+        </member>
+        <member name="F:Tweetinvi.Logic.Properties.Resources.ExceptionDescription_503">
+            <summary>
+              Looks up a localized string similar to Service Unavailable - The Twitter servers are up, but overloaded with requests. Try again later..
+            </summary>
+        </member>
+        <member name="F:Tweetinvi.Logic.Properties.Resources.ExceptionDescription_504">
+            <summary>
+              Looks up a localized string similar to Gateway timeout - The Twitter servers are up, but the request couldn&apos;t be serviced due to some failure within our stack. Try again later..
+            </summary>
+        </member>
+    </members>
+</doc>

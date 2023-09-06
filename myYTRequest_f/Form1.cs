@@ -27,6 +27,7 @@ namespace myYTRequest_f
         private YouTubeService yt;
         private YoutubeRequest myYouTubeObject;
         private XTwitterRequest myXTwitterObject;
+        private Instagram myInstaObject;
         public Form1()
         {
             InitializeComponent();
@@ -43,6 +44,7 @@ namespace myYTRequest_f
 
             myYouTubeObject = new YoutubeRequest(this);
             myXTwitterObject = new XTwitterRequest(this);
+            myInstaObject = new Instagram(this);
         }
 
         //-----------------------------------------------select the path
@@ -81,10 +83,10 @@ namespace myYTRequest_f
                         url_search.Text, title_video, chanel_video,
                         description_video, url_video, min_video, url_search); break;
 
-                        //case "Instagram"
-                        //await myInsragramObject.urlSearch(
-                        //url_search.Text, yt, title_video, chanel_video, description_video,
-                        //url_video, min_video, url_search); break;      
+                    case "Instagram":
+                        await myInstaObject.urlSearch(
+                        url_search.Text, yt, title_video, chanel_video, description_video,
+                        url_video, min_video, url_search); break;
                 }
 
 
@@ -137,6 +139,7 @@ namespace myYTRequest_f
             {
                 case string s when s.Contains("youtube.com"): return "YouTube";
                 case string s when s.Contains("twitter.com"): return "Twitter";
+                case string s when s.Contains("instagram.com"): return "Instagram";
 
                 default: return "Unknown"; 
             }
@@ -147,11 +150,25 @@ namespace myYTRequest_f
         private void btn_download_Click(object sender, EventArgs e)
         {
             if (radioVideo.Checked){
+                switch (platformName)
+                {
+                    case "YouTube": myYouTubeObject.downloadVideo(downloading_icon, btn_download, url_search, path);
+                        break;
+                    case "Twitter": myXTwitterObject.downloadVideo(downloading_icon, btn_download, url_search, path);
+                        break;
+                }
                 //downloadVideo();
-                myYouTubeObject.downloadVideo(downloading_icon, btn_download, url_search, path);
             }
             if (radioAudio.Checked) {
-                myYouTubeObject.downloadAudioMP3(downloading_icon, btn_download, url_search, path);
+                switch (platformName)
+                {
+                    case "YouTube": myYouTubeObject.downloadAudioMP3(downloading_icon, btn_download, url_search, path);
+
+                        break;
+                    //case "Twitter":
+                    //    myXTwitterObject.downloadAudioMP3(downloading_icon, btn_download, url_search, path);
+                    //    break;
+                }
                 //downloadAudioMP3(); 
             }
         }

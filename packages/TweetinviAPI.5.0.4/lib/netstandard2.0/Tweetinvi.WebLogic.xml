@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Tweetinvi.WebLogic</name>
+    </assembly>
+    <members>
+        <member name="T:Tweetinvi.WebLogic.OAuthQueryParameter">
+            <summary>
+            Information used to generate an OAuth query
+            </summary>
+        </member>
+        <member name="M:Tweetinvi.WebLogic.OAuthQueryParameter.#ctor(System.String,System.String,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Creates an OAuthQuery parameter that will be required to create 
+            an OAuth HttpWebRequest
+            </summary>
+            <param name="key">Parameter name</param>
+            <param name="value">Parameter value</param>
+            <param name="requiredForSignature">Is this parameter required to generate the signature</param>
+            <param name="requiredForHeader">Is this parameter required to generate the secret key</param>
+            <param name="isPartOfOAuthSecretKey">Is this parameter required to generate the secret key</param>
+        </member>
+        <member name="M:Tweetinvi.WebLogic.OAuthWebRequestGenerator.GenerateAdditionalHeaderParameters(System.Collections.Generic.IEnumerable{Tweetinvi.Core.Web.IOAuthQueryParameter})">
+            <summary>
+            Method Allowing to initialize a SortedDictionnary to enable oAuth query to be generated with
+            these parameters
+            </summary>
+            <returns>Call the method defined in the _generateDelegate and return a string result
+            This result will be the header of the WebRequest.</returns>
+        </member>
+        <member name="T:Tweetinvi.WebLogic.WebRequestExecutor">
+            <summary>
+            Generate a Token that can be used to perform OAuth queries
+            </summary>
+        </member>
+    </members>
+</doc>

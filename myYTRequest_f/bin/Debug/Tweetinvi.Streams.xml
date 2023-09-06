@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Tweetinvi.Streams</name>
+    </assembly>
+    <members>
+        <member name="T:Tweetinvi.Streams.Helpers.StreamResultGenerator">
+            <summary>
+            Extract objects from any kind of stream
+            </summary>
+        </member>
+        <member name="T:Tweetinvi.Streams.Helpers.StreamTrackManager`1">
+            <summary>
+            List of methods to be used to Track keywords
+            </summary>
+        </member>
+        <member name="M:Tweetinvi.Streams.Helpers.StreamTrackManager`1.RefreshTracking">
+            <summary>
+            Creates Arrays of string that cache information for later comparisons
+            This is required for performances improvement
+            </summary>
+        </member>
+        <member name="F:Tweetinvi.Streams.Properties.Resources.Stream_Filter">
+            <summary>
+              Looks up a localized string similar to https://stream.twitter.com/1.1/statuses/filter.json?.
+            </summary>
+        </member>
+        <member name="F:Tweetinvi.Streams.Properties.Resources.Stream_IllegalMultipleStreams">
+            <summary>
+              Looks up a localized string similar to You cannot run the multiple streams at the same times.
+            </summary>
+        </member>
+        <member name="F:Tweetinvi.Streams.Properties.Resources.Stream_ObjectDelegateIsNull">
+            <summary>
+              Looks up a localized string similar to You must specify what to do when the stream retrieves an object.
+            </summary>
+        </member>
+        <member name="F:Tweetinvi.Streams.Properties.Resources.Stream_Sample">
+            <summary>
+              Looks up a localized string similar to https://stream.twitter.com/1.1/statuses/sample.json?.
+            </summary>
+        </member>
+        <member name="F:Tweetinvi.Streams.Properties.Resources.TrackedStream_ModifyTracks_NotStoppedException_Description">
+            <summary>
+              Looks up a localized string similar to You cannot change the tracks while having the stream running or on pause. The stream must be stopped before updating the tracks..
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -7,6 +7,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Net;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.Design;
@@ -14,12 +15,23 @@ using AngleSharp.Dom;
 using Google.Apis;
 using MediaToolkit;
 using VideoLibrary;
-using HtmlAgilityPack;
 using System.Net.Http;
-using HtmlDocument = HtmlAgilityPack.HtmlDocument;
 using MediaToolkit.Util;
 using Newtonsoft.Json;
+using HtmlAgilityPack;
+using Newtonsoft.Json.Linq;
 using System.Web;
+using AngleSharp.Io;
+using OpenQA.Selenium;
+using HtmlDocument = HtmlAgilityPack.HtmlDocument;
+using OpenQA.Selenium.Chrome;
+using Google.Apis.Auth.OAuth2;
+using System.Reflection;
+using Tweetinvi;
+using Tweetinvi.Models;
+using Tweetinvi.Core.Models;
+using Tweetinvi.Parameters;
+using Tweetinvi.Models.Entities;
 
 namespace myYTRequest_f
 {
@@ -31,6 +43,8 @@ namespace myYTRequest_f
         private string apiSecretKey = "";
         private string accessToken = "";
         private string accessTokenSecret = "";
+        private string baererToken = "";
+
         public XTwitterRequest(Form1 form1)
         {
             this.form1 = form1;
@@ -41,33 +55,95 @@ namespace myYTRequest_f
         {
             try
             {
-                HttpClient client = new HttpClient();
-                    client.DefaultRequestHeaders.Add("Authorization", $"Bearer ");
+                string html_decoded;
+                title_video.Text = "Tweet Video";
+                url_video.Text = url;
+                chanel_video.Text = "From X (twiter)";
+                description_video.Text = "For the momment the video data can't be loaded in \n this previewer I apologize about it";
+              
+                min_video.Image = Properties.Resources.xtwitter_logo; 
+                min_video.SizeMode = PictureBoxSizeMode.Zoom;
+                form1.visibleItems(url_search.Text);
+                //using (HttpClient client = new HttpClient())
+                //{
 
-                    HttpResponseMessage response = await client.GetAsync($"https://api.twitter.com/2/tweets?ids={url}&tweet.fields=attachments");
-                    string responseJson = await response.Content.ReadAsStringAsync();
-                    //deserializa json object
-                    TwitterVideoResponse twitterVideo = JsonConvert.DeserializeObject<TwitterVideoResponse>(responseJson);
+                //    HttpResponseMessage resonse = client.GetAsync(url).Result;
 
-                    title_video.Text = $"[X]Twitter video {twitterVideo.id}";
-                    //chanel_video.Text = twitterVideo.user.screen_name;
-                    description_video.Text = twitterVideo.text;
-                    url_video.Text = url;
+                //    if(resonse.IsSuccessStatusCode)
+                //    {
+                //        var responseBody = await resonse.Content.ReadAsStringAsync();
+                //        HtmlDocument document = new HtmlDocument();
+                //        document.LoadHtml(responseBody);
 
-                    form1.visibleItems(url_search.Text);
+                //        string description = document.DocumentNode.SelectSingleNode("//span[@class='css-901oao css-16my406 r-poiln3 r-bcqeeo r-qvutc0']").InnerText;
+                //        // string imageUrl = document.DocumentNode.SelectSingleNode("//img[@class='tweet-image']/@src").Value;
 
 
-                string tempFilepath = Path.GetTempFileName();
-                File.WriteAllText(tempFilepath, responseJson);
-                Process process = Process.Start("notepad.exe", tempFilepath);
+                //        html_decoded = description;
+
+                //        //print
+                //        string responseJson = $"tweet {url} \n {html_decoded}";
+                //        string tempFilepath = Path.GetTempFileName();
+                //        File.WriteAllText(tempFilepath, responseJson);
+                //        Process process = Process.Start("notepad.exe", tempFilepath);
+                //    }
+                //}
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show("message: " + ex);
-
+                //MessageBox.Show($"Message: {ex}");
+                string tempFilepath = Path.GetTempFileName();
+                File.WriteAllText(tempFilepath, $"Message: \n {ex}");
+                Process process = Process.Start("notepad.exe", tempFilepath);
             }
 
+        }
+
+        public async void downloadVideo(PictureBox downloading_icon, Button btn_download, TextBox url_search, string path) 
+        {
+            try
+            {
+
+                var userCredentials = new TwitterCredentials(apiKey, apiSecretKey, accessToken, accessTokenSecret);
+                var appClient = new TwitterClient(userCredentials);
+
+                downloading_icon.Visible = true;
+                Image gifImage = Properties.Resources.downloading;
+                ImageAnimator.Animate(gifImage, form1.OnFrameChanged);
+                btn_download.Enabled = false;
+                
+                string theUrl = url_search.Text;
+                
+                using (HttpClient client = new HttpClient())
+                {
+                    string html = await client.GetStringAsync(theUrl);
+                    HtmlDocument doc = new HtmlDocument();  
+                    doc.LoadHtml(html);
+
+                    HtmlNode videoNode = doc.DocumentNode.SelectSingleNode("//video[@src]");
+                    if (videoNode != null)
+                    {
+                        string videoUrl = videoNode.GetAttributeValue("src", "");
+                        string videoName = Path.Combine(path,"tweetVideo.mp4");
+                        using (WebClient webClient = new WebClient())
+                        {
+
+                            webClient.DownloadFile(videoUrl, videoName);
+                        }
+                          form1.download_finished("Video", "tweetVideo.mp4");
+                    }
+                    else
+                    {
+                        MessageBox.Show($"counln't download video");
+
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show($"Message: \n {ex}");
+            }
         }
     }
 

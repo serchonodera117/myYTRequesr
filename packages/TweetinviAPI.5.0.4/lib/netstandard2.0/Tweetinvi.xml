@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Tweetinvi</name>
+    </assembly>
+    <members>
+        <member name="T:Tweetinvi.TweetinviContainer">
+            <summary>
+            For super users only. Change Tweetinvi internal mechanisms.
+            </summary>
+        </member>
+        <member name="E:Tweetinvi.TweetinviContainer.BeforeRegistrationComplete">
+            <summary>
+            Event raised before the registration completes so that you can override registered classes.
+            Doing so allow you to force Tweetinvi to use your own set of class instead of the one designed by the application.
+            </summary>
+        </member>
+        <member name="M:Tweetinvi.TweetinviContainer.Resolve``1">
+            <summary>
+            Allow you to retrieve any class used by Tweetinvi by specifying its interface.
+            </summary>
+        </member>
+        <member name="T:Tweetinvi.TweetinviEvents">
+            <summary>
+            Take power and control the execution of requests based on the state of your environment!
+            </summary>
+        </member>
+        <member name="E:Tweetinvi.TweetinviEvents.WaitingForRateLimit">
+            <inheritdoc cref="E:Tweetinvi.Core.Events.IExternalClientEvents.WaitingForRateLimit" />
+        </member>
+        <member name="E:Tweetinvi.TweetinviEvents.BeforeWaitingForRequestRateLimits">
+            <inheritdoc cref="E:Tweetinvi.Core.Events.IExternalClientEvents.BeforeWaitingForRequestRateLimits" />
+        </member>
+        <member name="E:Tweetinvi.TweetinviEvents.BeforeExecutingRequest">
+            <inheritdoc cref="E:Tweetinvi.Core.Events.IExternalClientEvents.BeforeExecutingRequest" />
+        </member>
+        <member name="E:Tweetinvi.TweetinviEvents.AfterExecutingRequest">
+            <inheritdoc cref="E:Tweetinvi.Core.Events.IExternalClientEvents.AfterExecutingRequest" />
+        </member>
+        <member name="E:Tweetinvi.TweetinviEvents.OnTwitterException">
+            <inheritdoc cref="E:Tweetinvi.Core.Events.IExternalClientEvents.OnTwitterException" />
+        </member>
+        <member name="P:Tweetinvi.TwitterClient.Credentials">
+            <summary>
+            IMPORTANT NOTE: The setter is for convenience. It is strongly recommended to create a new TwitterClient instead.
+            As using this setter could result in unexpected concurrency between the time of set and the execution of previous
+            non awaited async operations.
+            </summary>
+        </member>
+        <member name="P:Tweetinvi.TwitterClient.Auth">
+            <inheritdoc/>
+        </member>
+        <member name="P:Tweetinvi.TwitterClient.AccountSettings">
+            <inheritdoc/>
+        </member>
+        <member name="P:Tweetinvi.TwitterClient.Execute">
+            <inheritdoc/>
+        </member>
+        <member name="P:Tweetinvi.TwitterClient.Help">
+            <inheritdoc/>
+        </member>
+        <member name="P:Tweetinvi.TwitterClient.Lists">
+            <inheritdoc/>
+        </member>
+        <member name="P:Tweetinvi.TwitterClient.Messages">
+            <inheritdoc/>
+        </member>
+        <member name="P:Tweetinvi.TwitterClient.RateLimits">
+            <inheritdoc/>
+        </member>
+        <member name="P:Tweetinvi.TwitterClient.Search">
+            <inheritdoc/>
+        </member>
+        <member name="P:Tweetinvi.TwitterClient.Streams">
+            <inheritdoc/>
+        </member>
+        <member name="P:Tweetinvi.TwitterClient.Timelines">
+            <inheritdoc/>
+        </member>
+        <member name="P:Tweetinvi.TwitterClient.Trends">
+            <inheritdoc/>
+        </member>
+        <member name="P:Tweetinvi.TwitterClient.Tweets">
+            <inheritdoc/>
+        </member>
+        <member name="P:Tweetinvi.TwitterClient.Upload">
+            <inheritdoc/>
+        </member>
+        <member name="P:Tweetinvi.TwitterClient.Users">
+            <inheritdoc/>
+        </member>
+        <member name="P:Tweetinvi.TwitterClient.AccountActivity">
+            <inheritdoc/>
+        </member>
+        <member name="P:Tweetinvi.TwitterClient.SearchV2">
+            <inheritdoc/>
+        </member>
+        <member name="P:Tweetinvi.TwitterClient.TweetsV2">
+            <inheritdoc/>
+        </member>
+        <member name="P:Tweetinvi.TwitterClient.UsersV2">
+            <inheritdoc/>
+        </member>
+        <member name="P:Tweetinvi.TwitterClient.StreamsV2">
+            <inheritdoc/>
+        </member>
+        <member name="P:Tweetinvi.TwitterClient.Events">
+            <inheritdoc/>
+        </member>
+        <member name="P:Tweetinvi.TwitterClient.Factories">
+            <inheritdoc/>
+        </member>
+        <member name="P:Tweetinvi.TwitterClient.Json">
+            <inheritdoc/>
+        </member>
+        <member name="P:Tweetinvi.TwitterClient.ParametersValidator">
+            <inheritdoc/>
+        </member>
+        <member name="P:Tweetinvi.TwitterClient.Raw">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>
