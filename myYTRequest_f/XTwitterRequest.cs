@@ -143,6 +143,7 @@ namespace myYTRequest_f
             catch(Exception ex)
             {
                 MessageBox.Show($"Message: \n {ex}");
+                form1.just_hide_icon();
             }
         }
     }

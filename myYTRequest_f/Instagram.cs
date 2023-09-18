@@ -16,15 +16,16 @@ using Google.Apis.Services;
 using Google.Apis.YouTube.v3;
 using MediaToolkit;
 using VideoLibrary;
-
+using HtmlAgilityPack;
+using System.Net;
 
 namespace myYTRequest_f
 {
     internal class Instagram
     {
-        private Form form1;
+        private Form1 form1;
 
-        public Instagram(Form form)
+        public Instagram(Form1 form)
         {
             this.form1 = form;
         }
@@ -35,22 +36,49 @@ namespace myYTRequest_f
         {
             try
             {
-                using(HttpClient client = new HttpClient())
-                {
-                    HttpResponseMessage response = await client.GetAsync(url);
-                    if (response.IsSuccessStatusCode)
-                    {
-                        var responseBody = await response.Content.ReadAsStringAsync();
-                        string html_decoded = responseBody;
+                var web = new HtmlWeb();
+                var doc = web.Load(url);
 
-                        //print
-                        string responseJson = $"metaPost {url} \n {html_decoded}";
-                        string tempFilepath = Path.GetTempFileName();
-                        File.WriteAllText(tempFilepath, responseJson);
-                        Process process = Process.Start("notepad.exe", tempFilepath);
-                    }
+                var descriptionNode = doc.DocumentNode.SelectSingleNode("//meta[@property='og:description']");
+                string description = descriptionNode?.Attributes["content"]?.Value;
+
+                var authorNode = doc.DocumentNode.SelectSingleNode("//meta[@name='author']");
+                string author = authorNode?.Attributes["content"]?.Value;
+
+                var imageUrlNode = doc.DocumentNode.SelectSingleNode("//meta[@property='og:image']");
+                string imageUrl = imageUrlNode?.Attributes["content"]?.Value;
+
+                
+                string decodedDescription = WebUtility.HtmlDecode(description);
+                string decodedImageUrl = WebUtility.HtmlDecode(imageUrl);
+                string[] splitedDescription = decodedDescription.Split(' ');
+                string[] splitedDescriptionUser = decodedDescription.Split('"');
+                string decodedAutor = splitedDescription[5];
+
+                //print
+                title_video.Text = "Insta media";
+                chanel_video.Text =decodedAutor;
+                description_video.Text = splitedDescriptionUser[1];
+                url_video.Text = url;
+
+
+                HttpClient client = new HttpClient();
+                byte[] imgByte = await client.GetByteArrayAsync(decodedImageUrl);
+                using( var stream = new MemoryStream(imgByte))
+                {
+                    Image image = Image.FromStream(stream);
+                    min_video.Image = image;
                 }
-            }catch (Exception ex)
+
+                form1.visibleItems(url_search.Text);
+
+
+                string tempFilepath = Path.GetTempFileName();
+                File.WriteAllText(tempFilepath, $"Message: \n {decodedDescription}");
+                Process process = Process.Start("notepad.exe", tempFilepath);
+
+            }
+            catch (Exception ex)
             {
                 string tempFilepath = Path.GetTempFileName();
                 File.WriteAllText(tempFilepath, $"Message: \n {ex}");

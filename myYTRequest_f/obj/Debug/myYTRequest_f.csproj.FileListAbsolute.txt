@@ -38,7 +38,6 @@ D:\LENGUAJES_DE_PROGRAMACION\C#\myYTRequest_f\myYTRequest_f\bin\Debug\Google.Api
 D:\LENGUAJES_DE_PROGRAMACION\C#\myYTRequest_f\myYTRequest_f\bin\Debug\Google.Apis.YouTube.v3.xml
 D:\LENGUAJES_DE_PROGRAMACION\C#\myYTRequest_f\myYTRequest_f\bin\Debug\Jurassic.xml
 D:\LENGUAJES_DE_PROGRAMACION\C#\myYTRequest_f\myYTRequest_f\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
-D:\LENGUAJES_DE_PROGRAMACION\C#\myYTRequest_f\myYTRequest_f\bin\Debug\Newtonsoft.Json.xml
 D:\LENGUAJES_DE_PROGRAMACION\C#\myYTRequest_f\myYTRequest_f\bin\Debug\System.Buffers.xml
 D:\LENGUAJES_DE_PROGRAMACION\C#\myYTRequest_f\myYTRequest_f\bin\Debug\System.Diagnostics.DiagnosticSource.xml
 D:\LENGUAJES_DE_PROGRAMACION\C#\myYTRequest_f\myYTRequest_f\bin\Debug\System.Memory.xml
@@ -87,3 +86,4 @@ D:\LENGUAJES_DE_PROGRAMACION\C#\myYTRequest_f\myYTRequest_f\bin\Debug\Tweetinvi.
 D:\LENGUAJES_DE_PROGRAMACION\C#\myYTRequest_f\myYTRequest_f\bin\Debug\Tweetinvi.Logic.xml
 D:\LENGUAJES_DE_PROGRAMACION\C#\myYTRequest_f\myYTRequest_f\bin\Debug\Tweetinvi.Streams.xml
 D:\LENGUAJES_DE_PROGRAMACION\C#\myYTRequest_f\myYTRequest_f\bin\Debug\Tweetinvi.WebLogic.xml
+D:\LENGUAJES_DE_PROGRAMACION\C#\myYTRequest_f\myYTRequest_f\obj\Debug\myYTRequest_f.exe.config

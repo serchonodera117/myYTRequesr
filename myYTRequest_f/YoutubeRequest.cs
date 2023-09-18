@@ -30,6 +30,7 @@ namespace myYTRequest_f
         {
             //buscar del buscador
             var searchListRequest = yt.Search.List("snippet");
+            url =  form1.checkAmpersonURL(url);
             searchListRequest.Q = url;
             searchListRequest.MaxResults = 1;
 
@@ -78,6 +79,7 @@ namespace myYTRequest_f
                 ImageAnimator.Animate(gifImage, form1.OnFrameChanged);
                 btn_download.Enabled = false;
                 string theUrl = url_search.Text;
+                theUrl = form1.checkAmpersonURL(theUrl);
                 var youtube = YouTube.Default;
                 var video = await youtube.GetVideoAsync(theUrl);
 
@@ -87,7 +89,8 @@ namespace myYTRequest_f
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                form1.just_hide_icon();
+                MessageBox.Show($"Error: probably the video has a restriction \nDescription:  {e.Message}");
             }
         }
         public async void downloadAudioMP3(PictureBox downloading_icon, Button btn_download, TextBox url_search, string path)
@@ -99,6 +102,7 @@ namespace myYTRequest_f
                 ImageAnimator.Animate(gifImage, form1.OnFrameChanged);
                 btn_download.Enabled = false;
                 string theUrl = url_search.Text;
+                theUrl = form1.checkAmpersonURL(theUrl);
                 var youtube = YouTube.Default;
                 var video = await youtube.GetVideoAsync(theUrl);
                 File.WriteAllBytes(@path + '/' + video.FullName, video.GetBytes());
@@ -119,7 +123,9 @@ namespace myYTRequest_f
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + " " + ex);
+                form1.just_hide_icon();
+                MessageBox.Show("Error: " + "Probably a video has a restriction, my deepest apologies\n Description: " + ex);
+
             }
         }
 

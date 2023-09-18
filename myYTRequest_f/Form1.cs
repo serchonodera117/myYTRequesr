@@ -145,6 +145,18 @@ namespace myYTRequest_f
             }
         } 
 
+        public string checkAmpersonURL(string url)
+        {
+            if (url.Contains('&'))
+            {
+                string[] newURL = url.Split('&');
+                return newURL[0];
+                
+            }
+            else{
+                return url;
+            }
+        }
         //-----------------------------------------------------------------------------queries
 
         private void btn_download_Click(object sender, EventArgs e)
@@ -181,6 +193,11 @@ namespace myYTRequest_f
             myUrl = url_search.Text = "";
             MessageBox.Show($"The {file}  '[{myFileName}]' has been succesfully saved in {path}");
             openFIleRoute(myFileName);
+        }
+        public void just_hide_icon()
+        {
+            downloading_icon.Visible = false;
+            url_search.Text = "";
         }
         private void openFIleRoute(string theFileName)
         {
