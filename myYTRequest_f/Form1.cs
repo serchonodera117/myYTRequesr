@@ -39,7 +39,7 @@ namespace myYTRequest_f
 
             yt = new YouTubeService(new BaseClientService.Initializer()
             {
-                ApiKey = "" //to get it you have to log in Google developer console 
+                ApiKey = "AIzaSyCca9kwDhBgJ8SAz1zAAuYSsv-3KIZatQk" //to get it you have to log in Google developer console 
             });
 
             myYouTubeObject = new YoutubeRequest(this);
@@ -167,6 +167,8 @@ namespace myYTRequest_f
                     case "YouTube": myYouTubeObject.downloadVideo(downloading_icon, btn_download, url_search, path);
                         break;
                     case "Twitter": myXTwitterObject.downloadVideo(downloading_icon, btn_download, url_search, path);
+                        break;
+                    case "Instagram": myInstaObject.downloadVideo(downloading_icon, btn_download, url_search, path);
                         break;
                 }
                 //downloadVideo();

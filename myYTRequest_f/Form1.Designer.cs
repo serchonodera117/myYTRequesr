@@ -112,7 +112,7 @@ namespace myYTRequest_f
             this.chanel_video.BackColor = System.Drawing.Color.Transparent;
             this.chanel_video.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.chanel_video.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chanel_video.Location = new System.Drawing.Point(219, 35);
+            this.chanel_video.Location = new System.Drawing.Point(230, 50);
             this.chanel_video.Name = "chanel_video";
             this.chanel_video.Size = new System.Drawing.Size(60, 26);
             this.chanel_video.TabIndex = 7;
@@ -123,7 +123,7 @@ namespace myYTRequest_f
             this.description_video.AutoSize = true;
             this.description_video.BackColor = System.Drawing.Color.Transparent;
             this.description_video.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.description_video.Location = new System.Drawing.Point(222, 61);
+            this.description_video.Location = new System.Drawing.Point(227, 85);
             this.description_video.Name = "description_video";
             this.description_video.Size = new System.Drawing.Size(69, 15);
             this.description_video.TabIndex = 8;
@@ -133,7 +133,7 @@ namespace myYTRequest_f
             // 
             this.url_video.AutoSize = true;
             this.url_video.BackColor = System.Drawing.Color.Transparent;
-            this.url_video.Location = new System.Drawing.Point(226, 134);
+            this.url_video.Location = new System.Drawing.Point(226, 127);
             this.url_video.Name = "url_video";
             this.url_video.Size = new System.Drawing.Size(26, 20);
             this.url_video.TabIndex = 9;

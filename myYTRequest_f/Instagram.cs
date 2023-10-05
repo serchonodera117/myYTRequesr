@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
+using HtmlAgilityPack;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.Design;
@@ -16,14 +17,17 @@ using Google.Apis.Services;
 using Google.Apis.YouTube.v3;
 using MediaToolkit;
 using VideoLibrary;
-using HtmlAgilityPack;
 using System.Net;
+
+using HtmlDocument = HtmlAgilityPack.HtmlDocument;
+using Xamarin.Essentials;
 
 namespace myYTRequest_f
 {
     internal class Instagram
     {
         private Form1 form1;
+        private string authorFileName;
 
         public Instagram(Form1 form)
         {
@@ -58,6 +62,7 @@ namespace myYTRequest_f
                 //print
                 title_video.Text = "Insta media";
                 chanel_video.Text =decodedAutor;
+                authorFileName = decodedAutor;
                 description_video.Text = splitedDescriptionUser[1];
                 url_video.Text = url;
 
@@ -68,18 +73,81 @@ namespace myYTRequest_f
                 {
                     Image image = Image.FromStream(stream);
                     min_video.Image = image;
+                    min_video.SizeMode = PictureBoxSizeMode.Zoom;
                 }
 
                 form1.visibleItems(url_search.Text);
-
-
-                string tempFilepath = Path.GetTempFileName();
-                File.WriteAllText(tempFilepath, $"Message: \n {decodedDescription}");
-                Process process = Process.Start("notepad.exe", tempFilepath);
-
             }
             catch (Exception ex)
             {
+                string tempFilepath = Path.GetTempFileName();
+                File.WriteAllText(tempFilepath, $"Message: \n {ex}");
+                Process process = Process.Start("notepad.exe", tempFilepath);
+            }
+        }
+
+
+        public async void downloadVideo(PictureBox downloading_icon, Button btn_download, TextBox url_search, string path)
+        {
+            try
+            {
+                string instaUrl = url_search.Text;
+                WebBrowser myWebBrowser = new WebBrowser();
+
+                myWebBrowser.Navigate(instaUrl);
+                myWebBrowser.DocumentCompleted += (s, e) =>
+                {
+                    string html = myWebBrowser.DocumentText;
+                    HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+                    doc.LoadHtml(html);
+
+                    var videoNode = doc.DocumentNode.SelectSingleNode("//meta[@property='og:video']");
+                    if (videoNode != null )
+                    {
+                        string videolink = videoNode.GetAttributeValue("content", "");
+                        string tempFilepath = Path.GetTempFileName();
+                        File.WriteAllText(tempFilepath, $"Message: \n {videolink}");
+                        Process process = Process.Start("notepad.exe", tempFilepath);
+                    }
+                };
+
+               // InstagramDownloadMachineDemo.Program.DownloadToPathFIle(instaUrl, @path+'/'+ $"{authorFileName}.mp4"); 
+
+                //HttpClient client = new HttpClient();
+                //HttpResponseMessage response = await client.GetAsync(instaUrl);
+
+                //if (response.IsSuccessStatusCode)
+                //{
+                //    Stream stream = await response.Content.ReadAsStreamAsync();
+                //    StreamReader reader = new StreamReader(stream, Encoding.UTF8);
+                //    string htmlContent = reader.ReadToEnd();
+
+                //    HtmlDocument htmlDoc = new HtmlDocument();
+                //    htmlDoc.LoadHtml(htmlContent);
+
+                //   // Encuentra el nodo que contiene el enlace al video
+                //   HtmlNode videoNode = htmlDoc.DocumentNode.SelectSingleNode("//tagname[@class='x1ey2m1c']");
+
+                //        if (videoNode != null)
+                //        {
+                //            string videoUrl = videoNode.GetAttributeValue("content", "");
+                //            string tempFilepath = Path.GetTempFileName();
+                //            File.WriteAllText(tempFilepath, "Video URL: " + videoUrl);
+                //            Process process = Process.Start("notepad.exe", tempFilepath);
+
+                //        }
+                //        else
+                //        {
+                //            string tempFilepath = Path.GetTempFileName();
+                //            File.WriteAllText(tempFilepath, "Video URL: " + "No se pudo encontrar el video.");
+                //            Process process = Process.Start("notepad.exe", tempFilepath);
+                //    }
+                //}
+            }
+
+            catch (Exception ex)
+            {
+                form1.just_hide_icon();
                 string tempFilepath = Path.GetTempFileName();
                 File.WriteAllText(tempFilepath, $"Message: \n {ex}");
                 Process process = Process.Start("notepad.exe", tempFilepath);

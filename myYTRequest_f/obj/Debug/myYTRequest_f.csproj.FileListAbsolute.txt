@@ -86,4 +86,9 @@ D:\LENGUAJES_DE_PROGRAMACION\C#\myYTRequest_f\myYTRequest_f\bin\Debug\Tweetinvi.
 D:\LENGUAJES_DE_PROGRAMACION\C#\myYTRequest_f\myYTRequest_f\bin\Debug\Tweetinvi.Logic.xml
 D:\LENGUAJES_DE_PROGRAMACION\C#\myYTRequest_f\myYTRequest_f\bin\Debug\Tweetinvi.Streams.xml
 D:\LENGUAJES_DE_PROGRAMACION\C#\myYTRequest_f\myYTRequest_f\bin\Debug\Tweetinvi.WebLogic.xml
+D:\LENGUAJES_DE_PROGRAMACION\C#\myYTRequest_f\myYTRequest_f\bin\Debug\BouncyCastle.Crypto.dll
+D:\LENGUAJES_DE_PROGRAMACION\C#\myYTRequest_f\myYTRequest_f\bin\Debug\BouncyCastle.Crypto.xml
+D:\LENGUAJES_DE_PROGRAMACION\C#\myYTRequest_f\myYTRequest_f\bin\Debug\AngleSharp.Js.dll
+D:\LENGUAJES_DE_PROGRAMACION\C#\myYTRequest_f\myYTRequest_f\bin\Debug\jint.dll
+D:\LENGUAJES_DE_PROGRAMACION\C#\myYTRequest_f\myYTRequest_f\bin\Debug\AngleSharp.Js.xml
 D:\LENGUAJES_DE_PROGRAMACION\C#\myYTRequest_f\myYTRequest_f\obj\Debug\myYTRequest_f.exe.config

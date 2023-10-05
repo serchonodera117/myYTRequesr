@@ -54,6 +54,18 @@
     </dependentAssembly>
   </dependency>
   <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AngleSharp.Js.dll" size="65536">
+      <assemblyIdentity name="AngleSharp.Js" version="0.14.0.0" publicKeyToken="E83494DCDC6D31EA" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>Nbdiu8ht1od4cwbzm9RfEFYIPIAUwWoGNB8x2PUvWgQ=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Autofac.dll" size="231936">
       <assemblyIdentity name="Autofac" version="4.9.4.0" publicKeyToken="17863AF14B0044DA" language="neutral" processorArchitecture="msil" />
       <hash>
@@ -62,6 +74,18 @@
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
         <dsig:DigestValue>Sgolis3YuFRPEAJVs2lWRlqrMPvVV8J9fBR54hdto6Y=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BouncyCastle.Crypto.dll" size="2878000">
+      <assemblyIdentity name="BouncyCastle.Crypto" version="1.8.6.0" publicKeyToken="0E99375E54769942" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>WzSn0/lo43vQUtsmVBBbAKW9RsKqTsxS5KCrqWnlvQg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -162,6 +186,18 @@
     </dependentAssembly>
   </dependency>
   <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="jint.dll" size="244736">
+      <assemblyIdentity name="jint" version="2.10.4.0" publicKeyToken="2E92BA9C8D81157F" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>AMk9OYDhL0W0+WXrwM/WmVYSPOwql6ZNowGsGFd57/w=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Jurassic.dll" size="520192">
       <assemblyIdentity name="Jurassic" version="3.2.6.0" language="neutral" processorArchitecture="msil" />
       <hash>
@@ -210,14 +246,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="myYTRequest_f.exe" size="287200">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="myYTRequest_f.exe" size="288224">
       <assemblyIdentity name="myYTRequest_f" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>TX2bn7YityyAIjZlGGCsCrxG6wijylLO79VuHUTTRtU=</dsig:DigestValue>
+        <dsig:DigestValue>uvzDqQNGX+RDWOPopAKQw146Ll80YVGRNjoOqZWhhbA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -485,13 +521,13 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="myYTRequest_f.exe.config" size="2739">
+  <file name="myYTRequest_f.exe.config" size="2973">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>eWIUhylSB/i0QlQUkqXLnzwXgSIf6jbw5Y79t08m/+o=</dsig:DigestValue>
+      <dsig:DigestValue>tzKTusamXZ4UabEhLLuJwQM2EXEm756bpdaFRNq0Jzc=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

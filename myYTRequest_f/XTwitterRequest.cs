@@ -40,10 +40,10 @@ namespace myYTRequest_f
         private Form1 form1;
         //Twitter Api tokens
         private string apiKey = "";
-        private string apiSecretKey = "";
-        private string accessToken = "";
-        private string accessTokenSecret = "";
-        private string baererToken = "";
+        private string apiSecretKey = "YDMDlvmmyY4upNdK579X4l3QlsGlWh0z8MV6ortsqpk4XEQyYU";
+        private string accessToken = "701251154437664768-PWrIG3Tqms5F1EJ21SbkgVR43LwrWeU";
+        private string accessTokenSecret = "abFCQyjRL7E6V0016vQaPZEKQoprpKlrK4ywcHNlzZ36t";
+        private string baererToken = "AAAAAAAAAAAAAAAAAAAAAEg9pQEAAAAASmtaj2hfs3sCXpNoYYcBJuE14Po%3DnmksYoqZfldzwYR43x7l4LLiFzgjd8Ie38VUyLvPdtvWdB3zTk";
 
         public XTwitterRequest(Form1 form1)
         {
