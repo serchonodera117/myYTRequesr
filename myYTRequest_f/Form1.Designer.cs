@@ -191,7 +191,7 @@ namespace myYTRequest_f
             this.sign.Name = "sign";
             this.sign.Size = new System.Drawing.Size(345, 16);
             this.sign.TabIndex = 17;
-            this.sign.Text = "Developed by Serch Onodera. ©2023. All rights reserved.";
+            this.sign.Text = "Developed by Serch Onodera. ©2024. All rights reserved.";
             // 
             // downloading_icon
             // 

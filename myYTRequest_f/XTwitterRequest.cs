@@ -27,11 +27,7 @@ using HtmlDocument = HtmlAgilityPack.HtmlDocument;
 using OpenQA.Selenium.Chrome;
 using Google.Apis.Auth.OAuth2;
 using System.Reflection;
-using Tweetinvi;
-using Tweetinvi.Models;
-using Tweetinvi.Core.Models;
-using Tweetinvi.Parameters;
-using Tweetinvi.Models.Entities;
+
 
 namespace myYTRequest_f
 {
@@ -55,7 +51,6 @@ namespace myYTRequest_f
         {
             try
             {
-                string html_decoded;
                 title_video.Text = "Tweet Video";
                 url_video.Text = url;
                 chanel_video.Text = "From X (twiter)";
@@ -64,31 +59,6 @@ namespace myYTRequest_f
                 min_video.Image = Properties.Resources.xtwitter_logo; 
                 min_video.SizeMode = PictureBoxSizeMode.Zoom;
                 form1.visibleItems(url_search.Text);
-                //using (HttpClient client = new HttpClient())
-                //{
-
-                //    HttpResponseMessage resonse = client.GetAsync(url).Result;
-
-                //    if(resonse.IsSuccessStatusCode)
-                //    {
-                //        var responseBody = await resonse.Content.ReadAsStringAsync();
-                //        HtmlDocument document = new HtmlDocument();
-                //        document.LoadHtml(responseBody);
-
-                //        string description = document.DocumentNode.SelectSingleNode("//span[@class='css-901oao css-16my406 r-poiln3 r-bcqeeo r-qvutc0']").InnerText;
-                //        // string imageUrl = document.DocumentNode.SelectSingleNode("//img[@class='tweet-image']/@src").Value;
-
-
-                //        html_decoded = description;
-
-                //        //print
-                //        string responseJson = $"tweet {url} \n {html_decoded}";
-                //        string tempFilepath = Path.GetTempFileName();
-                //        File.WriteAllText(tempFilepath, responseJson);
-                //        Process process = Process.Start("notepad.exe", tempFilepath);
-                //    }
-                //}
-
             }
             catch (Exception ex)
             {
@@ -104,9 +74,6 @@ namespace myYTRequest_f
         {
             try
             {
-
-                var userCredentials = new TwitterCredentials(apiKey, apiSecretKey, accessToken, accessTokenSecret);
-                var appClient = new TwitterClient(userCredentials);
 
                 downloading_icon.Visible = true;
                 Image gifImage = Properties.Resources.downloading;
